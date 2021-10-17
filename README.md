@@ -1,5 +1,6 @@
 # algorithmic_trading
 
+<<<<<<< Updated upstream
 This project has been realized in coorperation with the student Hugo BESSON. It consists on the automatic detection of divergences, which occur between an asset and an oscillator. In the world of technical analysis, such project is relevant as the divergence asset indicates, with high probability, the direction in which the asset is likely to evolve. 
 
 The present project allows to perform detection of the 4 types of divergences, which are presented in the next picture : 
@@ -17,4 +18,6 @@ This detection occurs provided that the user gives the following information :
 
 
 
+=======
+>>>>>>> Stashed changes
 
