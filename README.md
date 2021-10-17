@@ -17,3 +17,6 @@ The next Figure summarizes the process ;
 
 ![](Process.png)
 *Inputs and outputs of the algorithm*
+
+A detailed and precise formulation of the problem, the principle and the results of the current version of the algorithm are given in the notebook "Divergence_detection.ipynb" located in the Trading_project folder. 
+
