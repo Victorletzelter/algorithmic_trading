@@ -4,6 +4,9 @@ This project has been realized in coorperation with the student Hugo BESSON. It 
 
 The present project allows to perform detection of the 4 types of divergences, which are the regular Bullish and Bearish divergences, and the hidden Bullish and Bearish divergences.
 
+![](List_Divergences.png)
+*The four types of divergences*
+
 This detection occurs provided that the user gives the following information :
 
 - The type of asset on which the detection is performed. 

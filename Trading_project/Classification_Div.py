@@ -6,15 +6,18 @@
 
 import os
 print("Current Working Directory " , os.getcwd())
-os.chdir("/Users/victorletzelter/Desktop/Projet_trading")
+os.chdir("/Users/victorletzelter/Documents/GitHub/algorithmic_trading/Trading_project")
+
+#The next two scripts are to execute before launching the code 
 
 exec(open('Modules.py').read())
-exec(open('Fonctions_algoV6.py').read())
-import yfinance as yf
+exec(open('Fonctions_algoV7.py').read())
 
-data = yf.Ticker("AAPL")
-#dataDF = data.history(interval='1h',start='2021-3-1',end=dt.datetime.now())
-dataDF = data.history(interval='1h',start='2020-2-1',end=dt.datetime.now())
+import yfinance as yf  
+
+data = yf.Ticker("AAPL") #AAPL can be replaced by the desired asset
+dataDF = data.history(interval='1h',start='2021-2-1',end=dt.datetime.now()) 
+
 l=dataDF['Close']
 l=l.tolist()
 (Mins,indMin,Maxs,indMax)=Extremas(l)
@@ -66,7 +69,7 @@ PBBaisses_interessantes_rsi=pt_interessant_typeDiv(indMin2,"RSI",l,l2,"Bas","Hid
 #Bullish Regular
 BullRegDivergence=creation_divergenceBullReg(PBBaisses_interessantes_cours,PBHausses_interessantes_rsi)
 BullRegDivergence_filtree=Filtration(BullRegDivergence)
-BRTraceFinaux(BullRegDivergence_filtree)
+BRTraceFinaux(BullRegDivergence_filtree,'blue')
 
 #Bullish Hidden
 BullHiddenDivergence=creation_divergenceBullHidden(PBHausses_interessantes_cours,PBBaisses_interessantes_rsi)
