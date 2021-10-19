@@ -22,15 +22,29 @@ l=dataDF['Close']
 l=l.tolist()
 (Mins,indMin,Maxs,indMax)=Extremas(l)
 
+plt.plot(l,color='black')
+plt.xlabel('Point Number')
+plt.ylabel('Asset values ($)')
+plt.title('Evolution of the asset chosen in a given time interval')
+plt.grid()
+plt.show()
+
 dataDF=Creation_rsi(dataDF)
 l2=dataDF['RSI']
 l2=l2.tolist()
 (Mins2,indMin2,Maxs2,indMax2)=Extremas(l2)
 
-Hausses_interessantes_cours=pt_interessant(indMax,"cours",l,l2)
-Baisses_interessantes_rsi=pt_interessant(indMax2,'RSI',l,l2)
-Divergence=creation_divergence(Hausses_interessantes_cours,Baisses_interessantes_rsi)
-Divergence_filtree=Filtration(Divergence)
+plt.plot(l2)
+plt.xlabel('Point Number')
+plt.ylabel('RSI value')
+plt.title('Evolution of the RSI in the same time interval')
+plt.grid()
+plt.show()
+
+#Hausses_interessantes_cours=pt_interessant(indMax,"cours",l,l2)
+#Baisses_interessantes_rsi=pt_interessant(indMax2,'RSI',l,l2)
+#Divergence=creation_divergence(Hausses_interessantes_cours,Baisses_interessantes_rsi)
+#Divergence_filtree=Filtration(Divergence)
 
 ###Classification
 
@@ -69,7 +83,7 @@ PBBaisses_interessantes_rsi=pt_interessant_typeDiv(indMin2,"RSI",l,l2,"Bas","Hid
 #Bullish Regular
 BullRegDivergence=creation_divergenceBullReg(PBBaisses_interessantes_cours,PBHausses_interessantes_rsi)
 BullRegDivergence_filtree=Filtration(BullRegDivergence)
-BRTraceFinaux(BullRegDivergence_filtree,'blue')
+BRTraceFinaux(BullRegDivergence_filtree,title='Bull',color='blue')
 
 #Bullish Hidden
 BullHiddenDivergence=creation_divergenceBullHidden(PBHausses_interessantes_cours,PBBaisses_interessantes_rsi)
