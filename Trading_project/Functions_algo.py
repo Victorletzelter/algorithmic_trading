@@ -749,6 +749,22 @@ def Score(Divergence) :
         Score+=np.abs(Ecart_rsi*Ecart_cours)*(y-x)
     return(Score/len(l))
 
+def Effect(Divergence_i,l,type,s=100) : #s defines the size of the time window (in number of points) following the divergence_i on which it will be evaluated
+    (a,b)=Divergence_i
+    if b+s>=len(l) :
+        return(None)
+    elif type=='bear' :
+        return(l[b]-min(l[b+1:b+s]))
+    elif type=='bull' :
+        return(max(l[b+1:b+s])-l[b])
+
+def GlobalPerf(Divergence,l,type) : 
+    le=[]
+    for e in Divergence :
+        if Effect(e,l,type)!=None :
+            le.append(Effect(e,l,type))
+
+
 def Trier(Divergence) :
     liste_len=[y-x for (x,y) in Divergence]
     args=np.argsort(liste_len)
@@ -926,5 +942,4 @@ def BRTraceFinaux3(Divergence_filtree,l) :
     ax[0].get_shared_x_axes().join(ax[0], ax[1])
 
     plt.show()
-
 

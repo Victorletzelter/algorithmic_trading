@@ -10,8 +10,8 @@ os.chdir("/Users/victorletzelter/Documents/GitHub/algorithmic_trading/Trading_pr
 
 #The next two scripts are to execute before launching the code 
 
-exec(open('Modules.py').read())
-exec(open('Fonctions_algoV7.py').read())
+exec(open('Imports.py').read())
+exec(open('Functions_algo.py').read())
 
 import yfinance as yf  
 
@@ -62,10 +62,22 @@ BearRegDivergence=creation_divergenceBearReg(PHHausses_interessantes_cours,PHBai
 BearRegDivergence_filtree=Filtration(BearRegDivergence)
 BRTraceFinaux(BearRegDivergence_filtree)
 
+effects=[]
+for e in BearRegDivergence_filtree :
+    if Effect(e,l,'bear')!=None :
+        effects.append(Effect(e,l,'bear'))
+
+plt.hist((effects))
+plt.show()
+    
+
 #Bearish Hidden
 BearHiddenDivergence=creation_divergenceBearHidden(PHBaisses_interessantes_cours,PHHausses_interessantes_rsi)
 BearHiddenDivergence_filtree=Filtration(BearHiddenDivergence)
 BRTraceFinaux(BearHiddenDivergence_filtree)
+
+for e in BearHiddenDivergence_filtree :
+    print(Effect(e,l,'bear'))
 
 #Bullish
 #plusHautBas="Bas" (car Bullish)
@@ -85,10 +97,21 @@ BullRegDivergence=creation_divergenceBullReg(PBBaisses_interessantes_cours,PBHau
 BullRegDivergence_filtree=Filtration(BullRegDivergence)
 BRTraceFinaux(BullRegDivergence_filtree,title='Bull',color='blue')
 
+le=[]
+for e in BullRegDivergence_filtree :
+    le.append(Effect(e,l,'bull'))
+
 #Bullish Hidden
 BullHiddenDivergence=creation_divergenceBullHidden(PBHausses_interessantes_cours,PBBaisses_interessantes_rsi)
 BullHiddenDivergence_filtree=Filtration(BullHiddenDivergence)
 BRTraceFinaux(BullHiddenDivergence)
+
+le=[]
+for e in BullHiddenDivergence_filtree :
+    if Effect(e,l,'bull')!=None :
+        le.append(Effect(e,l,'bull'))
+
+print(GlobalPerf(BearRegDivergence_filtree,l,'bear'))
 
 
 
