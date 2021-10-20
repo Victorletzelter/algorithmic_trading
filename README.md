@@ -18,5 +18,14 @@ The next Figure summarizes the process ;
 ![](Process.png)
 *Inputs and outputs of the algorithm*
 
+The second step of the algorithm, is to establish, for each divergence, a measure associated to the degree of confidence associated with it. To so do, a ML algorithm for predicting, given the characteristics of the divergence (length, asset price evolution, oscillator value evolution), a prediction of the *quality* of the divergence. 
+
+![](Prediction.gif)
+*Function to bluid for measuring the quality of a divergence (denoted by \mu)*
+
 A detailed and precise formulation of the problem, the principle and the results of the current version of the algorithm are given in the notebook "Divergence_detection.ipynb" located in the Trading_project folder. 
+
+This project has been designed by Victor LETZELTER and Hugo BESSON from scratch.
+
+
 
