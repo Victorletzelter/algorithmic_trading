@@ -18,7 +18,7 @@ The next Figure summarizes the process ;
 ![](Process.png)
 *Inputs and outputs of the algorithm*
 
-The second step of the algorithm, is to establish, for each divergence, a measure associated to the degree of confidence associated with it. To so do, a ML algorithm for predicting, given the characteristics of the divergence (length, asset price evolution, oscillator value evolution), a prediction of the *quality* of the divergence. 
+The second step of the algorithm, is to establish, for each divergence, a measure associated to the degree of confidence of it. To so do, a ML algorithm for predicting, given the characteristics of the divergence (length, asset price evolution, oscillator value evolution), a prediction of the *quality* of the divergence. 
 
 ![](Prediction.gif)
 *Function to bluid for measuring the quality of a divergence (denoted by \mu)*
